@@ -48,6 +48,7 @@ do_tar
 stato ()
 {
 ok_share
+ok_perl
 ok_perl_tk
 ok_install
 do_tar
