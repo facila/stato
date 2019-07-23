@@ -9,7 +9,7 @@ ok_facila   () { [ ! -d /facila            ] && mkdir /facila ; }
 ok_share    () { [ ! -d /facila/share      ] && ERROR=$ERROR"facila/share   "    ; }
 ok_net_kalk () { [ "`locate Kalk.pm`" = '' ] && ERROR=$ERROR"facila/Net-Kalk   " ; }
 ok_perl     () { [ "`which perl`"     = '' ] && ERROR=$ERROR"perl   "            ; }
-ok_perl_tk  () { [ "`locate /Tk.pm`"  = '' ] && ERROR=$ERROR"perl_TK   "         ; }
+ok_perl_tk  () { [ "`locate /Tk.pm`"  = '' ] && ERROR=$ERROR"perl-tk   "         ; }
 ok_install  () { [ "$ERROR" != ''          ] && { printf "vous devez d'abbord installer : $ERROR\n" ; exit ; } }
 
 do_tar ()
@@ -38,6 +38,7 @@ cp Net::Kalk.3pm.gz /usr/share/man/man3/
 
 kalkulo ()
 {
+updatedb
 ok_share
 ok_net_kalk
 ok_perl_tk
@@ -47,6 +48,7 @@ do_tar
 
 stato ()
 {
+updatedb
 ok_share
 ok_perl
 ok_perl_tk
