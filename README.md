@@ -2,7 +2,7 @@
 ### Installation de facila stato
 ```
 vous devez avoir installé au préalable :
-- perl et perl TK ( Tk.pm )
+- perl et perl-tk ( Tk.pm )
 - facila/share ( stato utilise net_ping.sh et net_snmp.sh )
 exécuter : ./install.sh stato 1.00
 ```
