@@ -38,6 +38,7 @@ cp Net::Kalk.3pm.gz /usr/share/man/man3/
 
 kalkulo ()
 {
+printf "updatedb\n"
 updatedb
 ok_share
 ok_net_kalk
@@ -48,6 +49,7 @@ do_tar
 
 stato ()
 {
+printf "updatedb\n"
 updatedb
 ok_share
 ok_perl
