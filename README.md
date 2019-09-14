@@ -1,10 +1,13 @@
 # stato : Etat SNMP
 ### Installation de facila stato
 ```
+installation en root
 vous devez avoir installé au préalable :
 - perl et perl-tk ( Tk.pm )
 - facila/share ( stato utilise net_ping.sh et net_snmp.sh )
-exécuter : ./install.sh stato 1.00
+exécuter :
+chmod 744 install.sh
+./install.sh stato 1.00
 ```
 ### Utilisation de facila stato
 ```
