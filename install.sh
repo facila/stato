@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# version 1.10
+# version 1.10 November 2019
+
 # l'installation se fait en root
 # se positionner dans le répertoire d'installation
 # passer la commande : ./install.sh "APPLICATION" "VERSION"
@@ -34,14 +35,13 @@ Net-Kalk ()
 ok_perl
 ok_install
 do_tar
-cd Net-Kalk/prg
+cd Net-Kalk
 cp Kalk.pm Kalk.pod /usr/share/perl5/Net/
 cp Net::Kalk.3pm.gz /usr/share/man/man3/
 }
 
 kalkulo ()
 {
-ok_share
 ok_net_kalk
 ok_perl_tk
 ok_install
@@ -61,6 +61,7 @@ do_tar
 
 ok_root
 ok_facila
+
 printf "updatedb\n"
 updatedb
 
