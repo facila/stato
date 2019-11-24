@@ -1,71 +1,63 @@
 #!/bin/bash
 
-# version 1.10 November 2019
-
+# version 2.00
 # l'installation se fait en root
-# se positionner dans le répertoire d'installation
-# passer la commande : ./install.sh "APPLICATION" "VERSION"
+# se positionner dans le répertoire contenant install.sh et le fichier à installer
+# passer la commande : ./install.sh FICHIER
 
-ok_root     () { [ "`whoami`" != 'root'    ] && { printf "vous devez être root pour exécuter install.sh\n" ; exit ; } }
-ok_facila   () { [ ! -d /facila            ] && mkdir /facila ; }
-ok_share    () { [ ! -d /facila/share      ] && ERROR=$ERROR"facila/share   "    ; }
-ok_net_kalk () { [ "`locate Kalk.pm`" = '' ] && ERROR=$ERROR"facila/Net-Kalk   " ; }
-ok_perl     () { [ "`which perl`"     = '' ] && ERROR=$ERROR"perl   "            ; }
-ok_perl_tk  () { [ "`locate /Tk.pm`"  = '' ] && ERROR=$ERROR"perl-tk   "         ; }
-ok_install  () { [ "$ERROR" != ''          ] && { printf "vous devez d'abbord installer : $ERROR\n" ; exit ; } }
+[ "`whoami`" != 'root' ] && { echo vous devez être root pour exécuter install.sh ; exit ; }
+FILE=$1 ; [ ! -f $FILE ] && { echo "le fichier $FILE n'existe pas" ; exit ; }
 
-do_tar ()
-{
-TAR=$APP.$VER.tar.gz
-cp $TAR /facila/$TAR
-cd /facila
-tar -xzf $TAR
-rm $TAR
-}
+FACILA=/usr/local/facila
+ DROIT=$FACILA/share/prg/sys_droit.sh
+if [ ! -d $FACILA ]
+then mkdir $FACILA $FACILA/share $FACILA/share/prg
+     tail -17 install.sh > $DROIT
+     chmod 744 $DROIT
+fi
 
-####################### applications à installer ########################
+APPLI=`echo $FILE | cut -f1 -d'.'`
 
-share ()
-{
-do_tar
-}
+echo vérification des dépendances de $APPLI
+ok_perl     () { [ "`find /usr/bin   -name perl`"    = '' ] && ERROR=$ERROR"perl   "            ; }
+ok_perl_tk  () { [ "`find /usr/lib   -name Tk.pm`"   = '' ] && ERROR=$ERROR"perl-tk   "         ; }
+ok_net_kalk () { [ "`find /usr/share -name Kalk.pm`" = '' ] && ERROR=$ERROR"facila/Net-Kalk   " ; }
 
-Net-Kalk ()
-{
-ok_perl
-ok_install
-do_tar
-cd Net-Kalk
-cp Kalk.pm Kalk.pod /usr/share/perl5/Net/
-cp Net::Kalk.3pm.gz /usr/share/man/man3/
-}
+ERROR=''
+case $APPLI in
+Net-Kalk) ok_perl ;;
+   stato) ok_perl ; ok_perl_tk ;;
+ kalkulo) ok_perl ; ok_perl_tk ; ok_net_kalk ;;
+esac
+[ "$ERROR" != '' ] && { echo "vous devez d'abbord installer : $ERROR" ; exit ; }
 
-kalkulo ()
-{
-ok_net_kalk
-ok_perl_tk
-ok_install
-do_tar
-}
+echo installation de facila $FILE
+cp $FILE /$FILE
+cd /
+tar -xzf $FILE
+rm $FILE
 
-stato ()
-{
-ok_share
-ok_perl
-ok_perl_tk
-ok_install
-do_tar
-}
+echo configuration des droits de facila
+$DROIT
 
-####################### programme principal ########################
+exit
 
-ok_root
-ok_facila
+# facila/share/prg/sys_droit.sh créé à la première installation par la commande tail de install.sh
 
-printf "updatedb\n"
-updatedb
+#!/bin/bash
 
-APP=$1
-VER=$2
-echo installation de facila $APP $VER
-$APP
+cd /usr/local
+chown -R root:root facila
+chmod -R 755       facila
+
+cd facila
+chmod 744 share/prg/sys_droit.sh
+
+find . -type d -name var -exec chmod -R 644 {} \;
+find . -type d -name var -exec chmod -R u+X,g+X,o+X {} \;
+
+find . -type d -name tmp -exec chmod -R 666 {} \;
+find . -type d -name tmp -exec chmod -R u+X,g+X,o+X {} \;
+
+find . -type d -name data -exec chmod -R 666 {} \;
+find . -type d -name data -exec chmod -R u+X,g+X,o+X {} \;
