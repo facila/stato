@@ -24,7 +24,7 @@ esac
 [ "$ERROR" != '' ] && { echo "vous devez d'abbord installer : $ERROR" ; exit ; }
 
 echo installation de facila $FILE
-cp $FILE /$FILE
+cp $FILE /
 cd /
 tar -xzf $FILE
 rm $FILE
