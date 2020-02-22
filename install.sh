@@ -11,9 +11,9 @@ FILE=$1 ; [ ! -f $FILE ] && { echo "le fichier $FILE n'existe pas" ; exit ; }
 APPLI=`echo $FILE | cut -f1 -d'.'`
 
 echo vérification des dépendances de $APPLI
-ok_perl     () { [ "`find /usr/bin   -name perl`"    = '' ] && ERROR=$ERROR"perl   "            ; }
-ok_perl_tk  () { [ "`find /usr/lib   -name Tk.pm`"   = '' ] && ERROR=$ERROR"perl-tk   "         ; }
 ok_net_kalk () { [ "`find /usr/share -name Kalk.pm`" = '' ] && ERROR=$ERROR"facila/Net-Kalk   " ; }
+ok_perl     () { [ "`find /usr/bin   -name perl`"    = '' ] && ERROR=$ERROR"perl   "            ; }
+ok_perl_tk  () { [ "`find /usr       -name Tk.pm`"   = '' ] && ERROR=$ERROR"perl-tk   "         ; }
 
 ERROR=''
 case $APPLI in
