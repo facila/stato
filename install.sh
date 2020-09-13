@@ -6,13 +6,16 @@
 # passer la commande : ./install.sh FICHIER
 
 [ "`whoami`" != 'root' ] && { echo vous devez être root pour exécuter install.sh ; exit ; }
-FILE=$1 ; [ ! -f $FILE ] && { echo "le fichier $FILE n'existe pas" ; exit ; }
+
+FILE=$1
+[ "$FILE" = '' ] && { echo "vous devez préciser l'application à installer" ; exit ; }
+[ ! -f $FILE   ] && { echo "le fichier $FILE n'existe pas" ; exit ; }
 
 APPLI=`echo $FILE | cut -f1 -d'.'`
 
 echo vérification des dépendances de $APPLI
-ok_perl    () { [ "`find /usr/bin -name perl`"  = '' ] && ERROR=$ERROR"perl   "    ; }
-ok_perl_tk () { [ "`find /usr     -name Tk.pm`" = '' ] && ERROR=$ERROR"perl-tk   " ; }
+ok_perl    () { [ "`perl -v`"                = '' ] && ERROR=$ERROR"perl   "    ; }
+ok_perl_tk () { [ "`perl -e 'use Tk' 2>&1`" != '' ] && ERROR=$ERROR"perl-tk   " ; } 
 
 ERROR=''
 case $APPLI in
