@@ -11,6 +11,7 @@ FILE=$1
 [ "$FILE" = '' ] && { echo "vous devez préciser l'application à installer" ; exit ; }
 [ ! -f $FILE   ] && { echo "le fichier $FILE n'existe pas" ; exit ; }
 
+DIR=/usr/local/facila
 APPLI=`echo $FILE | cut -f1 -d'.'`
 
 echo vérification des dépendances de $APPLI
@@ -25,7 +26,7 @@ esac
 [ "$ERROR" != '' ] && { echo "vous devez d'abbord installer : $ERROR" ; exit ; }
 
 echo installation de facila $FILE
-cp $FILE /
-cd /
+cp $FILE $DIR
+cd $DIR
 tar -xzf $FILE
 rm $FILE
