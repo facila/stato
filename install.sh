@@ -3,7 +3,7 @@
 # version 3.01
 # l'installation se fait en root
 # se positionner dans le répertoire contenant install.sh et le fichier à installer
-# passer la commande : ./install.sh FICHIER
+# passer la commande : sh install.sh FICHIER
 
 [ "`whoami`" != 'root' ] && { echo vous devez être root pour exécuter install.sh ; exit ; }
 
