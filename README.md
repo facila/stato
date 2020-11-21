@@ -5,8 +5,7 @@ installation en root
 vous devez avoir installé au préalable :
 - perl et perl-tk ( Tk.pm )
 exécuter :
-chmod 744 install.sh
-./install.sh stato.2.02.tar.gz
+sh install.sh stato.2.02.tar.gz
 ```
 ### Utilisation de facila stato
 ```
