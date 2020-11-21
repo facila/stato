@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# version 3.00
+# version 3.01
 # l'installation se fait en root
 # se positionner dans le répertoire contenant install.sh et le fichier à installer
 # passer la commande : ./install.sh FICHIER
