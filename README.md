@@ -6,8 +6,8 @@ l'installation se fait en root
 vous devez avoir installé au préalable :
 - perl et perl-tk ( Tk.pm )
 
-se positionner dans le répertoire contenant install.sh et exécuter :
-sh install.sh
+se positionner dans le répertoire contenant install.sh et le fichier .tar.gz
+exécuter : sh install.sh
 ```
 ### Utilisation de facila stato
 ```
