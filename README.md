@@ -1,13 +1,11 @@
 # stato : Etat SNMP
 ### Installation de facila stato
 ```
-l'installation se fait en root
-
 vous devez avoir installé au préalable :
 - perl et perl-tk ( Tk.pm )
 
 se positionner dans le répertoire contenant install.sh et le fichier .tar.gz
-exécuter : sh install.sh
+exécuter : sudo sh install.sh
 ```
 ### Utilisation de facila stato
 ```
