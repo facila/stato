@@ -4,7 +4,7 @@
 # exécuter la commande : sudo sh install.sh
 
 APPLI=stato
-VERSION=2.02
+VERSION=2.10
 
 [ "`whoami`" != 'root' ] && { echo vous devez exécuter : sudo sh install.sh ; exit ; }
 
