@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# version  : 2.10 - November 2020
+# version  : 2.11 - February 2021
 # author   : Thierry Le Gall
 # contact  : facila@gmx.fr
 # web site : https://github.com/facila/stato
@@ -229,7 +229,7 @@ $mode = ':encoding(UTF-8)' if $ENV{LANG} =~ /UTF-8/ && ! $term;
 
 open(FILE,"<$mode",'help'); while(<FILE>) { $file_help .= $_ }; close(FILE);
 
-if    ( $ARGV[0] eq 'help' ) { print $file_help ; exit }
+if    ( $ARGV[0] eq 'help' ) { print "$file_help\n" ; exit }
 elsif ( $ARGV[0] eq 'term' ) { shift }
 
 ( $host , $host_add , $options , $list ) = @ARGV;

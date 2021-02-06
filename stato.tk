@@ -1,4 +1,4 @@
-# version  : 2.10 - November 2020
+# version  : 2.11 - February 2021
 # author   : Thierry Le Gall
 # contact  : facila@gmx.fr
 # web site : https://github.com/facila/stato
@@ -41,8 +41,8 @@ $page{quit}  = $book->add('quit' ,-label=>$text_quit ,-raisecmd=>sub{exit});
 
 # page help
 chomp($file_help);
-$help = $page{help}->Text()->pack(-fill=>'both',-expand=>1);
-$help->insert('end',$file_help);
+$help = $page{help}->Scrolled('Text',-scrollbars=>'osoe')->pack(-fill=>'both',-expand=>1);
+$help->insert('1.0',$file_help);
 $help->configure(-state=>'disabled',-width=>$x_win,-height=>$y_win);
 
 # page state
@@ -105,7 +105,7 @@ sub clear {
 sub display {
     my $affi = $_[0];
 
-    chomp ($text);
+    chomp($text);
     $affi->delete('1.0','end');
     $affi->insert('1.0',$text);
 
