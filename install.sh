@@ -19,5 +19,6 @@ FILE=$APPLI.$VERSION.tar.gz
 echo installation de facila $FILE
 tar -xzf $FILE -C /
 
-# copie du répertoire LANG dans la langue de votre machine
+# copie du répertoire d'origine $LG dans la langue de votre machine $LANG
+# vous pouvez-ensuite traduire les fichiers ( menu , aide , ... )
 [ "$LANG" != "$LG" ] && cp -R $DIR/var/$LG $DIR/var/$LANG
