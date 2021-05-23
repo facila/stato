@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# version  : 2.11 - February 2021
+# version  : 2.13 - May 2021
 # author   : Thierry Le Gall
 # contact  : facila@gmx.fr
 # web site : https://github.com/facila/stato
