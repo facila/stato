@@ -4,8 +4,8 @@
 vous devez avoir installé au préalable :
 - perl et perl-tk ( Tk.pm )
 
-se positionner dans le répertoire contenant install.sh et le fichier .tar.gz
-exécuter : sudo sh install.sh
+se positionner dans le répertoire contenant stato_install.sh et le fichier .tar.gz
+exécuter : sudo sh stato_install.sh
 ```
 ### Utilisation de facila stato
 ```
