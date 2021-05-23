@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# se positionner dans le répertoire contenant install.sh et le fichier tar.gz
-# exécuter la commande : sudo sh install.sh
+# se positionner dans le répertoire contenant stato_install.sh et le fichier tar.gz
+# exécuter la commande : sudo sh stato_install.sh 
 
 APPLI=stato
-VERSION=2.11
+VERSION=2.13
 
 DIR=/usr/local/facila
 LG=fr_FR.UTF-8
 
-[ "`whoami`" != 'root' ] && { echo vous devez exécuter : sudo sh install.sh ; exit ; }
+[ "`whoami`" != 'root' ] && { echo vous devez exécuter : sudo sh stato_install.sh ; exit ; }
 
 # vérification des dépendances
 perl -e ''       2>/dev/null ; [ $? != "0" ] && { echo "vous devez d'abbord installer : perl"    ; exit ; }
