@@ -4,8 +4,14 @@
 vous devez avoir installé au préalable :
 - perl et perl-tk ( Tk.pm )
 
-se positionner dans le répertoire contenant install.sh et le fichier .tar.gz
-exécuter : sudo sh install.sh stato "version de stato à installer"
+télécharger stato à partir de github :
+- cliquer sur : Code
+- cliquer sur : Download ZIP
+
+se positionner dans le répertoire contenant stato-main.zip et taper les commandes suivantes :
+- unzip stato-main.zip
+- cd stato-main
+- sudo sh install.sh stato 2.13
 ```
 ### Utilisation de facila stato
 ```
