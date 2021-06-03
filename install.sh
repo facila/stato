@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# version 1.00 Mai 2021
-# se positionner dans le répertoire contenant install.sh et le fichier tar.gz
-# exécuter la commande : sudo sh install.sh APPLI VERSION
+# version 1.01 Juin 2021
+# se positionner dans le répertoire contenant install.sh et le FICHIER tar.gz à installer
+# exécuter la commande : sudo sh install.sh FICHIER
 
 proc_appli ()
 {
@@ -25,15 +25,16 @@ perl -e "$1" 2>/dev/null
 
 ##########################################################################
 
-APPLI=$1
-VERSION=$2
-FILE=$APPLI.$VERSION.tar.gz
+FILE=$1
+APPLI=`echo $FILE | cut -f1 -d.`
+  EXT=`echo $FILE | cut -f4-5 -d.`
 
 DIR=/usr/local/facila
 LG=fr_FR.UTF-8
 
-[ "`whoami`" != 'root' ] && { echo vous devez exécuter : sudo sh install.sh APPLI VERSION ; exit ; }
-[ ! -s $FILE           ] && { echo fichier $FILE absent ; exit ; }
+[ "`whoami`" != 'root'   ] && { echo vous devez exécuter : sudo sh install.sh FICHIER ; exit ; }
+[ "$EXT"     != "tar.gz" ] && { echo le fichier $FILE doit être un tar.gz ; exit ; }
+[ ! -s $FILE             ] && { echo fichier $FILE absent ; exit ; }
 
 # vérification des dépendances
 proc_appli
