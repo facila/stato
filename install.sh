@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# version 1.01 Juin 2021
+# version 1.02 Juillet 2021
 # se positionner dans le répertoire contenant install.sh et le FICHIER tar.gz à installer
 # exécuter la commande : sudo sh install.sh FICHIER
 
@@ -46,4 +46,4 @@ tar -xzf $FILE -C /
 
 # copie du répertoire d'origine $LG dans la langue de votre machine $LANG
 # vous pouvez-ensuite traduire les fichiers ( menu , aide , ... )
-[ "$LANG" != "$LG" ] && cp -R $DIR/var/$LG $DIR/var/$LANG
+[ "$LANG" != "$LG" ] && cp -R $DIR/$APPLI/var/$LG $DIR/var/$LANG
