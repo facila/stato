@@ -46,4 +46,4 @@ tar -xzf $FILE -C /
 
 # copie du répertoire d'origine $LG dans la langue de votre machine $LANG
 # vous pouvez-ensuite traduire les fichiers ( menu , aide , ... )
-[ "$LANG" != "$LG" ] && cp -R $DIR/$APPLI/var/$LG $DIR/var/$LANG
+[ "$LG" != "$LANG" ] && cp -R $DIR/$APPLI/var/$LG $DIR/$APPLI/var/$LANG
