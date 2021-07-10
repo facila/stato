@@ -12,7 +12,7 @@ positionnez vous dans le répertoire contenant stato-main.zip et tapez les comma
 - unzip stato-main.zip
 - cd stato-main
 - chmod +x install.sh
-- sudo sh install.sh stato.2.13.tar.gz
+- sudo sh install.sh stato.2.14.tar.gz
 ```
 ### Utilisation de facila stato
 ```
