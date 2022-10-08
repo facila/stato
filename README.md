@@ -16,8 +16,11 @@ tapez les commandes suivantes :
 - cd stato-main
 - install.sh stato.2.15.tar.gz
 
-si la variable globale $FACILA n'existe pas , elle est créée dans ~/.bashrc : "export FACILA=$DIR/facila"
-si il y a une ancienne version de stato , les répertoires et fichiers de install_stato sont copiés dans $FACILA/old
+si la variable globale $FACILA n'existe pas
+-elle est créée dans ~/.bashrc : "export FACILA=$DIR/facila"
+
+si il y a une ancienne version de stato
+- les répertoires et fichiers de install_stato sont copiés dans $FACILA/old
 ```
 ### Utilisation de facila stato
 ```
