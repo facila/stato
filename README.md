@@ -31,3 +31,12 @@ alias stato='$FACILA/stato/prg/stato'
 ```
 stato
 ```
+### Application partagée , commandes à faire en root
+```
+si vous souhaitez partager stato à un groupe d'utilisateurs vous devez :
+- créer un groupe pour stato ou utiliser un groupe déjà existant
+- mettre les répertoires et fichiers de stato dans ce groupe en r-x
+- créer les utilisateurs en les mettant dans ce groupe
+
+les utilisteurs doivent se connecter au serveur avec la commande : ssh -X SERVEUR
+'''
