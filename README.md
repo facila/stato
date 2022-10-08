@@ -11,15 +11,15 @@ téléchargez stato à partir de github :
 positionnez vous dans le répertoire contenant stato-main.zip et tapez les commandes suivantes :
 - unzip stato-main.zip
 - cd stato-main
-- sudo sh install.sh stato.2.14.tar.gz
+- install.sh stato.2.15.tar.gz
 ```
 ### Utilisation de facila stato
 ```
-/usr/local/facila/stato/prg/stato
+$FACILA/stato/prg/stato
 ```
 ### L'utilisateur peut créer un alias dans .bashrc
 ```
-alias stato='/usr/local/facila/stato/prg/stato'
+alias stato='$FACILA/stato/prg/stato'
 ```
 ### La commande devient alors
 ```
