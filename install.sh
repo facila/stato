@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # version 2.00 octobre 2022
-# se positionner dans le répertoire contenant install.sh et le FICHIER tar.gz à installer
-# exécuter la commande : install.sh FICHIER
+# sh install.sh FICHIER
 
 proc_exit ()
 {
@@ -26,23 +25,22 @@ proc_exit 'use Tk' perl-tk
 proc_facila ()
 {
 OK=1
-if [ "$FACILA" = "" ]
-then FACILA="$DIR/facila"
-     printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
-     OK=0
-fi
+[ "$FACILA" != "" ] && return
 
+OK=0
+FACILA="$PWD/facila"
+printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
 [ ! -d $FACILA ] && mkdir facila facila/old facila/archive facila/version
-cd $FACILA
 }
 
 proc_old ()
 {
-[ ! -f "$DIR/install_$APPLI" ] && return
-cat $DIR/install_$APPLI | while read OLD
+[ "$INSTALL" = "" ] && return
+
+cat $INSTALL | while read OLD
 do mkdir -p old/$OLD # création des répertoires contenus dans $OLD
    rmdir    old/$OLD # suppression du dernier repertoire de $OLD
-   mv $FACILA/$OLD old/$OLD.`date +%y%m%d_%H%M` 2> /dev/null
+   mv $OLD old/$OLD.`date +%y%m%d_%H%M` 2> /dev/null
 done
 }
 
@@ -50,7 +48,8 @@ proc_lang ()
 {
 # copie du répertoire d'origine $LG dans la langue de la machine $LANG
 [ "$LG" = "$LANG" ] && return
-cp -R $FACILA/$APPLI/var/$LG $FACILA/$APPLI/var/$LANG
+
+cp -R $APPLI/var/$LG $APPLI/var/$LANG
 echo "votre langue est $LANG"
 echo "vous pouvez traduire les fichiers ( menu , aide , ... )"
 }
@@ -66,23 +65,27 @@ echo "commande : $FACILA/$APPLI/prg/$APPLI"
 
 #################################################################################
 
- FILE=$1
+FILE=$1
 APPLI=`echo $FILE | cut -f1 -d.`
   EXT=`echo $FILE | cut -f4-5 -d.`
-  DIR=$PWD
+  DIR=$APPLI-main
    LG=fr_FR.UTF-8
 
+FILE="$DIR/$FILE"
 [ "$EXT" != "tar.gz" ] && { echo le fichier $FILE doit être un tar.gz ; exit ; }
 [ ! -s "$FILE"       ] && { echo fichier $FILE absent ; exit ; }
 
-[ "`dirname $FILE`" = "." ] && FILE="$DIR/$FILE"
+[ -f "$DIR/install_$APPLI" ] && INSTALL="$DIR/install_$APPLI"
 
 echo vérification des dépendances
 proc_perl
 proc_appli
 
-echo installation de facila $FILE
+echo verification ou initialisation de facila
 proc_facila
+
+echo installation de $FILE
+cd $FACILA
 proc_old
 tar -xzf $FILE
 proc_lang
