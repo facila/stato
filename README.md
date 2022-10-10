@@ -8,13 +8,15 @@ téléchargez stato à partir de github :
 - cliquez sur : Code
 - cliquez sur : Download ZIP
 
-positionnez vous dans le répertoire $DIR où vous souhaitez installer facila stato
-copier le fichier téléchargé stato-main.zip dans ce répertoire
+déclarer les variables pour l'installation :
+- DIR_SOURCE="nom du répertoire où se trouve le fichier téléchagé : stato-main.zip"
+- DIR_DESTINATION="nom du répertoire où vous souhaitez installer facila stato"
 
 tapez les commandes suivantes :
+- cd $DIR_DESTINATION
+- cp $DIR_SOURCE/stato-main.zip .
 - unzip stato-main.zip
-- cd stato-main
-- install.sh stato.2.15.tar.gz
+- sh stato-main/install.sh stato.2.15.tar.gz
 
 si la variable globale $FACILA n'existe pas
 - elle est créée dans ~/.bashrc : "export FACILA=$DIR/facila"
