@@ -56,9 +56,9 @@ echo "vous pouvez traduire les fichiers ( menu , aide , ... )"
 
 proc_end ()
 {
-for OLD in ../$APPLI*
-do mv $OLD install.`date +%y%m%d_%H%M` 2> /dev/null
-done
+mv ../$APPLI-main.zip install
+mv $FILE version
+rm -rf ../$APPLI-main 
 
 echo
 if [ "$OK" = "1" ]
