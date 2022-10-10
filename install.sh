@@ -68,14 +68,14 @@ echo "commande : $FACILA/$APPLI/prg/$APPLI"
 FILE=$1
 APPLI=`echo $FILE | cut -f1 -d.`
   EXT=`echo $FILE | cut -f4-5 -d.`
-  DIR=$APPLI-main
+  DIR=$PWD/$APPLI-main
    LG=fr_FR.UTF-8
 
-FILE="$DIR/$FILE"
+FILE=$DIR/$FILE
 [ "$EXT" != "tar.gz" ] && { echo le fichier $FILE doit être un tar.gz ; exit ; }
 [ ! -s "$FILE"       ] && { echo fichier $FILE absent ; exit ; }
 
-[ -f "$DIR/install_$APPLI" ] && INSTALL="$DIR/install_$APPLI"
+[ -f "$DIR/install_$APPLI" ] && INSTALL=$DIR/install_$APPLI
 
 echo vérification des dépendances
 proc_perl
