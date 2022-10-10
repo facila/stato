@@ -30,7 +30,7 @@ OK=1
 OK=0
 FACILA="$PWD/facila"
 printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
-[ ! -d $FACILA ] && mkdir facila facila/old facila/archive facila/version
+[ ! -d $FACILA ] && mkdir facila facila/install facila/old facila/archive facila/version
 }
 
 proc_old ()
