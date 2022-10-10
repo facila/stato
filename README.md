@@ -14,7 +14,7 @@ tapez les commandes suivantes :
 - cd
 - cp $DIR_SOURCE/stato-main.zip .
 - unzip stato-main.zip
-- sh stato-main/install.sh stato.2.15.tar.gz
+- sh stato-main/install.sh stato.v2.15.tar.gz
 
 si la variable globale $FACILA n'existe pas
 - elle est créée dans ~/.bashrc : "export FACILA=~/facila"
