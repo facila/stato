@@ -56,6 +56,7 @@ echo "vous pouvez traduire les fichiers ( menu , aide , ... )"
 
 proc_end ()
 {
+mv ../$APPLI* install
 echo
 if [ "$OK" = "1" ]
 then echo "vous pouvez exécuter $APPLI"
