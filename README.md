@@ -17,7 +17,7 @@ tapez les commandes suivantes :
 - install.sh stato.2.15.tar.gz
 
 si la variable globale $FACILA n'existe pas
--elle est créée dans ~/.bashrc : "export FACILA=$DIR/facila"
+- elle est créée dans ~/.bashrc : "export FACILA=$DIR/facila"
 
 si il y a une ancienne version de stato
 - les répertoires et fichiers de install_stato sont copiés dans $FACILA/old
@@ -42,4 +42,4 @@ si vous souhaitez partager stato à un groupe d'utilisateurs vous devez :
 - créer les utilisateurs en les mettant dans ce groupe
 
 les utilisteurs doivent se connecter au serveur avec la commande : ssh -X SERVEUR
-'''
+```
