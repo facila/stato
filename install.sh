@@ -56,6 +56,7 @@ echo "vous pouvez traduire les fichiers ( menu , aide , ... )"
 
 proc_end ()
 {
+echo
 if [ "$OK" = "1" ]
 then echo "vous pouvez exécuter $APPLI"
 else echo "fermer et relancer le shell pour exécuter $APPLI"
