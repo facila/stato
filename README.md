@@ -12,7 +12,7 @@ l'installation se fait dans le répertoire de l'utilisateur
 tapez les commandes suivantes :
 - DIR_SOURCE="nom du répertoire où se trouve le fichier téléchargé : stato-main.zip"
 - cd
-- cp $DIR_SOURCE/stato-main.zip .
+- mv $DIR_SOURCE/stato-main.zip .
 - unzip stato-main.zip
 - sh stato-main/install.sh stato.v2.15.tar.gz
 
