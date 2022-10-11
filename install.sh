@@ -43,10 +43,13 @@ proc_old ()
 
 cd $FACILA/share/save/old
 echo sauvegarde ancienne version dans $PWD
+
 cat $INSTALL | while read OLD
-do mkdir -p $OLD # création des répertoires contenus dans $OLD
-   rmdir    $OLD # suppression du dernier repertoire de $OLD
-   mv $FACILA/$OLD $OLD.`date +%y%m%d_%H%M` 2> /dev/null
+do if [ ! -d $OLD -o ! -f $OLD ]
+   then mkdir -p $OLD # création des répertoires contenus dans $OLD
+        rmdir    $OLD # suppression du dernier repertoire de $OLD
+        mv $FACILA/$OLD $OLD.`date +%y%m%d_%H%M` 2> /dev/null
+   fi
 done
 }
 
@@ -62,9 +65,10 @@ echo "vous pouvez traduire les fichiers ( menu , aide , ... )"
 
 proc_end ()
 {
-mv ../$APPLI-main.zip install
-mv $FILE version
-rm -rf ../$APPLI-main 
+cd ..
+mv $APPLI-main.zip facila/share/save/install
+mv $FILE           facila/share/save/version
+rm -rf $APPLI-main
 
 echo
 if [ "$OK" = "1" ]
@@ -95,8 +99,8 @@ echo verification ou initialisation de facila
 proc_facila
 
 echo installation de $FILE
-proc_old
 cd $FACILA
+proc_old
 tar -xzf $FILE
 proc_lang
 proc_end
