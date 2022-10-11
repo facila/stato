@@ -24,17 +24,18 @@ proc_exit 'use Tk' perl-tk
 
 proc_facila ()
 {
-OK_END=1
-[ "$FACILA" != "" ] && return
-
-OK_END=0
-FACILA=$PWD/facila
-  SAVE=$FACILA/share/save
-printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
-if [ ! -d $FACILA ]
-then mkdir -p $SAVE
-     cd $SAVE 
-     mkdir install old archive version
+OK_FACILA=1
+[ "$FACILA" = "" ] && { OK_FACILA=0 ; FACILA=$PWD/facila ; }
+          
+SAVE=$FACILA/share/save
+          
+if [ $OK_FACILA = 0 ]
+then printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
+     if [ ! -d $FACILA ]
+     then mkdir -p $SAVE
+          cd $SAVE 
+          mkdir install old archive version
+     fi
 fi
 }
 
@@ -72,7 +73,7 @@ mv $FILE           $SAVE/version
 rm -rf $APPLI-main
 
 echo
-if [ $OK_END = 1 ]
+if [ $OK_FACILA = 1 ]
 then echo "vous pouvez exécuter $APPLI"
 else echo "fermer et relancer le shell pour exécuter $APPLI"
 fi
