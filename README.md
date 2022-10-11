@@ -20,10 +20,10 @@ si la variable globale $FACILA n'existe pas
 - elle est créée dans ~/.bashrc : "export FACILA=~/facila"
 
 si il y a une ancienne version de stato
-- les répertoires et fichiers de install_stato sont copiés dans $FACILA/old
+- les répertoires et fichiers de install_stato sont copiés dans $FACILA/share/save/old
 
-stato-main.zip est déplacé dans $FACILA/install
-stato.v2.15.tar.gz est déplacé dans $FACILA/version
+stato-main.zip     est déplacé dans $FACILA/share/save/install
+stato.v2.15.tar.gz est déplacé dans $FACILA/share/save/version
 ```
 ### Utilisation de facila stato
 ```
