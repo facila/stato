@@ -46,7 +46,7 @@ proc_old ()
 [ "$INSTALL" = "" ] && return
 
 OK_OLD=0
-cat $INSTALL | while read F
+for F in $(cat $INSTALL)
 do if [ -d $F -o -f $F ]
    then OK_OLD=1
         mkdir -p $SAVE/old/$F # création des répertoires contenus dans $F
