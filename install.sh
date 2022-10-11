@@ -54,7 +54,7 @@ do if [ -d $F -o -f $F ]
         mv $F    $SAVE/old/$F.`date +%y%m%d_%H%M` 2> /dev/null
    fi
 done
-[ $OK_OLD = 1 ] && echo "sauvegarde de l'ancienne version dans $SAVE/old"
+[ $OK_OLD = 1 ] && echo "  sauvegarde de l'ancienne version dans $SAVE/old"
 }
 
 proc_lang ()
