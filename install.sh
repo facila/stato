@@ -29,6 +29,7 @@ OK=1
 
 OK=0
 FACILA="$PWD/facila"
+OLD=$FACILA/share/save/old
 printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
 if [ ! -d $FACILA ]
 then mkdir -p facila/share/save
@@ -41,16 +42,16 @@ proc_old ()
 {
 [ "$INSTALL" = "" ] && return
 
-cd $FACILA/share/save/old
-echo sauvegarde ancienne version dans $PWD
-
-cat $INSTALL | while read OLD
-do if [ ! -d $OLD -o ! -f $OLD ]
-   then mkdir -p $OLD # création des répertoires contenus dans $OLD
-        rmdir    $OLD # suppression du dernier repertoire de $OLD
-        mv $FACILA/$OLD $OLD.`date +%y%m%d_%H%M` 2> /dev/null
+SAVE=0
+cat $INSTALL | while read F
+do if [ -d $F -o -f $F ]
+   then SAVE=1
+        mkdir -p $OLD/$F # création des répertoires contenus dans $F
+        rmdir    $OLD/$F # suppression du dernier repertoire de $F
+        mv $F    $OLD/$F.`date +%y%m%d_%H%M` 2> /dev/null
    fi
 done
+[ $SAVE = "1" ] && "echo sauvegarde de l'ancienne version dans $OLD"
 }
 
 proc_lang ()
@@ -84,6 +85,7 @@ echo "commande : $FACILA/$APPLI/prg/$APPLI"
 APPLI=`echo $FILE | cut -f1 -d.`
   EXT=`echo $FILE | cut -f4-5 -d.`
   DIR=$PWD/$APPLI-main
+  
    LG=fr_FR.UTF-8
 
 FILE=$DIR/$FILE
