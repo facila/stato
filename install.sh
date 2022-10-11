@@ -24,16 +24,16 @@ proc_exit 'use Tk' perl-tk
 
 proc_facila ()
 {
-OK=1
+OK_END=1
 [ "$FACILA" != "" ] && return
 
-OK=0
-FACILA="$PWD/facila"
-OLD=$FACILA/share/save/old
+OK_END=0
+FACILA=$PWD/facila
+  SAVE=$FACILA/share/save
 printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
 if [ ! -d $FACILA ]
-then mkdir -p facila/share/save
-     cd facila/share/save 
+then mkdir -p $SAVE
+     cd $SAVE 
      mkdir install old archive version
 fi
 }
@@ -42,16 +42,16 @@ proc_old ()
 {
 [ "$INSTALL" = "" ] && return
 
-SAVE=0
+OK_OLD=0
 cat $INSTALL | while read F
 do if [ -d $F -o -f $F ]
-   then SAVE=1
-        mkdir -p $OLD/$F # création des répertoires contenus dans $F
-        rmdir    $OLD/$F # suppression du dernier repertoire de $F
-        mv $F    $OLD/$F.`date +%y%m%d_%H%M` 2> /dev/null
+   then OK_OLD=1
+        mkdir -p $SAVE/old/$F # création des répertoires contenus dans $F
+        rmdir    $SAVE/old/$F # suppression du dernier repertoire de $F
+        mv $F    $SAVE/old/$F.`date +%y%m%d_%H%M` 2> /dev/null
    fi
 done
-[ $SAVE = "1" ] && "echo sauvegarde de l'ancienne version dans $OLD"
+[ $OK_OLD == 1 ] && "echo sauvegarde de l'ancienne version dans $SAVE/old"
 }
 
 proc_lang ()
@@ -67,12 +67,12 @@ echo "vous pouvez traduire les fichiers ( menu , aide , ... )"
 proc_end ()
 {
 cd ..
-mv $APPLI-main.zip facila/share/save/install
-mv $FILE           facila/share/save/version
+mv $APPLI-main.zip $SAVE/install
+mv $FILE           $SAVE/version
 rm -rf $APPLI-main
 
 echo
-if [ "$OK" = "1" ]
+if [ $OK_END == 1 ]
 then echo "vous pouvez exécuter $APPLI"
 else echo "fermer et relancer le shell pour exécuter $APPLI"
 fi
@@ -84,8 +84,7 @@ echo "commande : $FACILA/$APPLI/prg/$APPLI"
  FILE=$1
 APPLI=`echo $FILE | cut -f1 -d.`
   EXT=`echo $FILE | cut -f4-5 -d.`
-  DIR=$PWD/$APPLI-main
-  
+  DIR=$PWD/$APPLI-main  
    LG=fr_FR.UTF-8
 
 FILE=$DIR/$FILE
