@@ -74,12 +74,11 @@ mv $APPLI-main.zip $SAVE/install
 mv $FILE           $SAVE/version
 rm -rf $APPLI-main
 
-echo
 if [ $OK_FACILA = 1 ]
-then echo "vous pouvez exécuter $APPLI"
-else echo "fermer et relancer le shell pour exécuter $APPLI"
+then echo "  vous pouvez exécuter $APPLI"
+else echo "  fermer et relancer le shell pour exécuter $APPLI"
 fi
-echo "commande : $FACILA/$APPLI/prg/$APPLI"
+echo "  commande : $FACILA/$APPLI/prg/$APPLI"
 }
 
 #################################################################################
