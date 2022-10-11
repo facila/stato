@@ -30,9 +30,11 @@ OK_FACILA=1
 SAVE=$FACILA/share/save
           
 if [ $OK_FACILA = 0 ]
-then printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
+then echo "ajout de FACILA dans .bashrc"
+     printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
      if [ ! -d $FACILA ]
-     then mkdir -p $SAVE
+     then echo " création des répertoires de facila"
+          mkdir -p $SAVE
           cd $SAVE 
           mkdir install old archive version
      fi
@@ -97,7 +99,7 @@ echo vérification des dépendances
 proc_perl
 proc_appli
 
-echo verification ou initialisation de facila
+echo verification de facila
 proc_facila
 
 echo installation de $FILE
