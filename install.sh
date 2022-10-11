@@ -6,7 +6,7 @@
 proc_exit ()
 {
 perl -e "$1" 2>/dev/null
-[ $? != "0" ] && { echo "vous devez d'abbord installer : $2" ; exit ; }
+[ $? != "0" ] && { echo "  vous devez d'abbord installer : $2" ; exit ; }
 }
 
 proc_appli ()
