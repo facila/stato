@@ -36,7 +36,7 @@ then echo "  ajout de FACILA dans .bashrc"
      then echo "  création des répertoires de facila"
           mkdir -p $SAVE
           cd $SAVE 
-          mkdir install old archive version
+          mkdir install delete old archive version
      fi
 fi
 }
