@@ -25,19 +25,19 @@ proc_exit 'use Tk' perl-tk
 proc_facila ()
 {
 OK_FACILA=1
-[ "$FACILA" = "" ] && { OK_FACILA=0 ; FACILA=$PWD/facila ; }
-          
-SAVE=$FACILA/share/save
-          
-if [ $OK_FACILA = 0 ]
-then echo "  ajout de FACILA dans .bashrc"
+if [ "$FACILA" = "" ]
+then OK_FACILA=0
+     FACILA=$PWD/facila
+     echo "  ajout de FACILA dans .bashrc"
      printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
-     if [ ! -d $FACILA ]
-     then echo "  création des répertoires de facila"
-          mkdir -p $SAVE
-          cd $SAVE 
-          mkdir install delete old archive version
-     fi
+fi
+
+SAVE=$FACILA/share/save
+if [ ! -d $FACILA ]
+then echo "  création des répertoires de facila"
+     mkdir -p $SAVE
+     cd $SAVE 
+     mkdir install delete old archive version
 fi
 }
 
