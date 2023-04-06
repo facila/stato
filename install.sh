@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# version 2.00 octobre 2022
+# version 2.01 avril 2023
 # sh install.sh FICHIER
 
 proc_exit ()
@@ -104,6 +104,6 @@ proc_facila
 echo "installation de $FILE"
 cd $FACILA
 proc_old
-tar -xzf $FILE
+tar -pxzf $FILE
 proc_lang
 proc_end
