@@ -14,7 +14,7 @@ tapez les commandes suivantes :
 - cd
 - mv $DIR_SOURCE/stato-main.zip .
 - unzip stato-main.zip
-- sh stato-main/install.sh stato.v2.15.tar.gz
+- sh stato-main/install.sh stato.v2.16.tar.gz
 
 si la variable globale $FACILA n'existe pas
 - elle est créée dans ~/.bashrc : "export FACILA=~/facila"
@@ -23,7 +23,7 @@ si il y a une ancienne version de stato
 - les répertoires et fichiers de install_stato sont copiés dans $FACILA/share/save/old
 
 stato-main.zip     est déplacé dans $FACILA/share/save/install
-stato.v2.15.tar.gz est déplacé dans $FACILA/share/save/version
+stato.v2.16.tar.gz est déplacé dans $FACILA/share/save/version
 ```
 ### Utilisation de facila stato
 ```
@@ -37,12 +37,9 @@ alias stato='$FACILA/stato/prg/stato'
 ```
 stato
 ```
-### Application partagée , commandes à faire en root
+### Application partagée sur un serveur
 ```
-si vous souhaitez partager stato à un groupe d'utilisateurs vous devez :
-- créer un groupe pour stato ou utiliser un groupe déjà existant
-- mettre les répertoires et fichiers de stato dans ce groupe ( vérifier les droit r-x )
-- créer les utilisateurs en les mettant dans ce groupe
-
+stato est accessible à tous les utilisateurs ayant un compte sur le serveur
+avec les droits r-x ou r-- pour tous
 les utilisateurs doivent se connecter au serveur avec la commande : ssh -X SERVEUR
 ```
