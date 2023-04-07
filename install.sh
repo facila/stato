@@ -57,6 +57,17 @@ done
 [ $OK_OLD = 1 ] && echo "  sauvegarde de l'ancienne version dans $SAVE/old"
 }
 
+proc_data ()
+{
+INIT=kreo/data_init/$APPLI
+[ ! -d $INIT ] && return
+
+# copie du dossier d'installation data_init dans data pour l'utilisateur
+DATA=$APPLI/data/$USER
+[ ! -d $DATA ] && mkdir $DATA
+cp -r $INIT/* $DATA
+}
+
 proc_lang ()
 {
 [ "$LG" = "$LANG" ] && return
@@ -105,5 +116,6 @@ echo "installation de $FILE"
 cd $FACILA
 proc_old
 tar -pxzf $FILE
+proc_data
 proc_lang
 proc_end
