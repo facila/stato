@@ -10,7 +10,7 @@ téléchargez stato à partir de github :
 
 l'installation se fait dans le répertoire de l'utilisateur
 tapez les commandes suivantes :
-  MAIN=stao-main
+  MAIN=stato-main
   TAR=stato.v2.16.tar.gz
   DIR="nom du répertoire où se trouve le fichier téléchargé : $MAIN.zip"
   cd
