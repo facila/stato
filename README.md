@@ -21,7 +21,6 @@ tapez les commandes suivantes :
 si la variable globale $FACILA n'existe pas
 - elle est créée dans ~/.bashrc : "export FACILA=~/facila"
 
-
 si il y a une ancienne version de stato
 - les répertoires et fichiers de install_stato sont copiés dans $FACILA/share/save/old
 
