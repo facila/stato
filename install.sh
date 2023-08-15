@@ -33,7 +33,7 @@ then OK_FACILA=0
 fi
 
 SAVE=$FACILA/save
-if [ ! -d $FACILA ]
+if [ ! -d $SAVE ]
 then echo "  création des répertoires de facila"
      mkdir -p $SAVE
      cd $SAVE 
