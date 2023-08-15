@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# version 2.01 avril 2023
+# version 2.02 septembre 2023
 # sh install.sh FICHIER
 
 proc_exit ()
@@ -32,12 +32,12 @@ then OK_FACILA=0
      printf "\n# FACILA\nexport FACILA=$FACILA\n" >> ~/.bashrc
 fi
 
-SAVE=$FACILA/share/save
+SAVE=$FACILA/save
 if [ ! -d $FACILA ]
 then echo "  création des répertoires de facila"
      mkdir -p $SAVE
      cd $SAVE 
-     mkdir install delete old archive version
+     mkdir archive data delete install old version
 fi
 }
 
