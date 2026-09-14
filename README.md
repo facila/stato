@@ -2,7 +2,7 @@
 
 ### Etat SNMP
 ```
-version : 
+version : 2.16 Avril 2023
 auteur  : Thierry Le Gall
 contact : facila@gmx.fr
 site    : https://github.com/facila/stato
