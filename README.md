@@ -1,4 +1,12 @@
-# facila stato : Etat SNMP
+# Facila Stato
+
+### Etat SNMP
+```
+version : 
+auteur  : Thierry Le Gall
+contact : facila@gmx.fr
+site    : https://github.com/facila/stato
+```
 ### Installation de facila stato
 ```
 vous devez avoir installé au préalable :
