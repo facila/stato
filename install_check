@@ -1,0 +1,4 @@
+#!/bin/bash
+
+proc_check perl  perl -e ''
+proc_check Tk.pm perl -e 'use Tk'
